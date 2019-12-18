@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PrintLoca from "./components/PrintLoca";
 import Loading from "./components/Loading";
-// import Getdata from "./components/Getdata";
+import Main from "./components/Main";
 
 export default class App extends Component {
   state = {
@@ -14,7 +14,7 @@ export default class App extends Component {
   getLocationData = async () => {
     try {
       await axios.get("http://localhost:4500/data/location").then(res => {
-        console.log("res", res.data);
+        // console.log("res", res.data);
         this.setState({ location: res.data, isLoading: false });
       });
     } catch (err) {
@@ -31,17 +31,18 @@ export default class App extends Component {
     return isLoading ? (
       <Loading />
     ) : (
-      <View style={styles.container}>
-        {location.map((loca, key) => {
-          return (
-            <PrintLoca
-              key={key}
-              name={loca.location}
-              count={loca.locationCount}
-            />
-          );
-        })}
-      </View>
+      // <View style={styles.container}>
+      //   {location.map((loca, key) => {
+      //     return (
+      //       <PrintLoca
+      //         key={key}
+      //         name={loca.location}
+      //         count={loca.locationCount}
+      //       />
+      //     );
+      //   })}
+      // </View>
+      <Main />
     );
   }
 }
