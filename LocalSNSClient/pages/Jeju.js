@@ -9,10 +9,12 @@ export default function Jeju(props) {
       <Text sytle={styles.text}>Jeju</Text>
       <View>
         {props.location.map(loca => {
-          return (
+          return loca.location !== "undefined" ? (
             <Text style={styles.text}>
               {loca.location} {loca.locationCount}
             </Text>
+          ) : (
+            delete loca.location
           );
         })}
       </View>
