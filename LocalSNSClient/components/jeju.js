@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default class Jeju extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default function Jeju(props) {
+  console.log("loca", props.location);
 
-  render() {
-    console.log("prop", this.props);
-    console.log("propCount", this.props.count);
-
-    return (
-      <View style={styles.container}>
-        <Text sytle={styles.text}>Jeju</Text>
+  return (
+    <View style={styles.container}>
+      <Text sytle={styles.text}>Jeju</Text>
+      <View>
+        {props.location.map(loca => {
+          return (
+            <Text style={styles.text}>
+              {loca.location} {loca.locationCount}
+            </Text>
+          );
+        })}
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -29,6 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     margin: 10,
-    color: "#ffffff"
+    color: "white"
   }
 });
