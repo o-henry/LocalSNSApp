@@ -1,5 +1,5 @@
 import axios from "axios";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { Alert } from "react-native";
 
 const getLocationData = async () => {
   try {
