@@ -1,25 +1,36 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
+import Constants from "expo-constants";
 
-export default function Jeju(props) {
-  console.log("loca", props.location);
+export default class Jeju extends Component {
+  constructor(props, locations, locaCount) {
+    super(props, locations, locaCount);
+    console.log("count", this.props.location.length);
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text sytle={styles.text}>Jeju</Text>
-      <View>
-        {props.location.map(loca => {
-          return loca.location !== "undefined" ? (
-            <Text style={styles.text}>
-              {loca.location} {loca.locationCount}
-            </Text>
-          ) : (
-            delete loca.location
-          );
-        })}
-      </View>
-    </View>
-  );
+  render() {
+    console.log("loca", this.location);
+    return (
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          <View style={styles.container}>
+            <View>
+              <Text style={styles.text}>{this.location}</Text>
+              {this.props.location.map((loca, id) => {
+                return loca.location !== "undefined" ? (
+                  <Text style={styles.text} key={id}>
+                    {loca.location} {loca.locationCount}
+                  </Text>
+                ) : (
+                  delete loca.location
+                );
+              })}
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -27,7 +38,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#bb0000"
+    backgroundColor: "#bb0000",
+    marginTop: Constants.statusBarHeight
+  },
+  scrollView: {
+    backgroundColor: "pink",
+    marginHorizontal: 20
   },
   text: {
     fontSize: 20,

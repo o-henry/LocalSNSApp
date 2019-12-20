@@ -9,6 +9,9 @@ export default class Location extends Component {
       <View style={styles.container}>
         <Button title="JEJU" onPress={Actions.category} />
         <Button title="SEOUL" />
+        <Button title="GYEONGGI-DO" />
+        <Button title="GANGWON-DO" />
+        <Button title="BUSAN" />
       </View>
     );
   }

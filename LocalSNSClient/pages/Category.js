@@ -34,8 +34,10 @@ export default class Category extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="HOTPLACE" onPress={this.getData} />
+        <Button title="HOT PLACE" onPress={this.getData} />
         <Button title="RESTAURANT" />
+        <Button title="CAFE" />
+        <Button title="ETC" />
       </View>
     );
   }
