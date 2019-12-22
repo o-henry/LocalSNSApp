@@ -5,21 +5,19 @@ import Constants from "expo-constants";
 export default class Jeju extends Component {
   constructor(props, locations, locaCount) {
     super(props, locations, locaCount);
-    console.log("count", this.props.location.length);
   }
 
   render() {
-    console.log("loca", this.location);
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
           <View style={styles.container}>
+            <View style={styles.divider} />
             <View>
-              <Text style={styles.text}>{this.location}</Text>
               {this.props.location.map((loca, id) => {
                 return loca.location !== "undefined" ? (
-                  <Text style={styles.text} key={id}>
-                    {loca.location} {loca.locationCount}
+                  <Text style={styles.name} key={id}>
+                    {loca.location}
                   </Text>
                 ) : (
                   delete loca.location
@@ -36,19 +34,49 @@ export default class Jeju extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#bb0000",
-    marginTop: Constants.statusBarHeight
+    backgroundColor: "white"
   },
+  border: {
+    width: 375,
+    height: 75,
+    borderRadius: 5,
+    backgroundColor: "#ffffff",
+    shadowColor: "rgba(59, 74, 116, 0.14)",
+    shadowOffset: {
+      width: 0,
+      height: 1.5
+    },
+    shadowRadius: 14.5,
+    shadowOpacity: 1
+  },
+  name: {
+    textAlign: "left",
+    marginLeft: 100,
+    width: 300,
+    height: 20.5,
+    fontSize: 20.5,
+    fontWeight: "500",
+    fontStyle: "normal",
+    lineHeight: 22.5,
+    letterSpacing: 1,
+    color: "#140f26"
+  },
+  divider: {
+    width: 450,
+    height: 1,
+    opacity: 0.08,
+    backgroundColor: "black"
+  },
+
   scrollView: {
     backgroundColor: "pink",
     marginHorizontal: 20
   },
   text: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-    color: "white"
+    // textAlign: "center",
+    color: "black"
   }
 });

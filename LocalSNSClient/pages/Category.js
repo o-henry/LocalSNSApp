@@ -34,6 +34,7 @@ export default class Category extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.divider} />
         <Button title="HOT PLACE" onPress={this.getData} />
         <Button title="RESTAURANT" />
         <Button title="CAFE" />
@@ -46,8 +47,16 @@ export default class Category extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
     alignItems: "center",
-    justifyContent: "center"
+    // justifyContent: "center",
+    backgroundColor: "white"
+  },
+  divider: {
+    width: 450,
+    height: 1,
+    opacity: 0.08,
+    backgroundColor: "black"
   },
   title: {
     textAlign: "center",

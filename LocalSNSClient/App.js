@@ -14,8 +14,8 @@ export default class App extends Component {
         <Scene key="root">
           <Scene key="signin" component={SignIn} />
           <Scene key="location" component={Location} />
-          <Scene key="category" component={Category} title="Category" />
-          <Scene key="jeju" component={Jeju} title="Jeju_Page" />
+          <Scene key="category" component={Category} />
+          <Scene key="jeju" component={Jeju} />
           <Scene key="seoul" component={Seoul} title="Seoul_Page" />
         </Scene>
       </Router>
