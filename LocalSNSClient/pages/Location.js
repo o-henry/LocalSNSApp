@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { StyleSheet, Button, Text, View, Alert } from "react-native";
-import { Actions } from "react-native-router-flux";
+import { StyleSheet, Text, View } from "react-native";
+
+import LocationBtn from "../components/LocationBtn";
 
 export default class Location extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="JEJU" onPress={Actions.category} />
-        <Button title="SEOUL" />
-        <Button title="GYEONGGI-DO" />
-        <Button title="GANGWON-DO" />
-        <Button title="BUSAN" />
+        {LocationBtn("JEJU")}
+        {LocationBtn("SEOUL")}
+        {LocationBtn(" GYEONGGI-DO ")}
+        {LocationBtn("GANGWON-DO ")}
+        {LocationBtn("BUSAN")}
+        {LocationBtn("NAM-HAE")}
       </View>
     );
   }
@@ -20,13 +21,17 @@ export default class Location extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    paddingLeft: 10,
+    paddingTop: 50,
+    paddingRight: 10,
+    backgroundColor: "#ffffff"
   },
-  title: {
-    textAlign: "center",
-    marginTop: 17,
-    color: "black"
+  backgorund: {
+    width: 375,
+    height: 812
   },
   fixToText: {
     flexDirection: "row",
