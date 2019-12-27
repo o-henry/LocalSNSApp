@@ -6,12 +6,18 @@ export default class Location extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {LocationBtn("JEJU")}
-        {LocationBtn("SEOUL")}
-        {LocationBtn(" GYEONGGI-DO ")}
-        {LocationBtn("GANGWON-DO ")}
-        {LocationBtn("BUSAN")}
-        {LocationBtn("NAM-HAE")}
+        <View style={styles.header}>
+          <Text style={styles.title}> PLACE </Text>
+        </View>
+        {LocationBtn("JEJU", require("../assets/jeju.jpg"))}
+        {LocationBtn("SEOUL", require("../assets/seoul.jpg"))}
+        {LocationBtn(" GYEONGGI-DO", require("../assets/seoul2.jpg"))}
+        {LocationBtn("GANGWON-DO", require("../assets/gangwon.jpg"))}
+        {LocationBtn("BUSAN", require("../assets/busan.jpg"))}
+        {LocationBtn("NAM-HAE", require("../assets/seoul3.jpg"))}
+        <View style={styles.footer}>
+          <View style={styles.bookMark}></View>
+        </View>
       </View>
     );
   }
@@ -23,22 +29,38 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    paddingLeft: 10,
-    paddingTop: 10,
-    paddingRight: 10,
+    alignContent: "center",
+    alignSelf: "center",
     backgroundColor: "#ffffff"
   },
-  backgorund: {
-    width: 375,
-    height: 812
+  title: {
+    marginTop: "10%",
+    marginBottom: "30%",
+    justifyContent: "center",
+    fontStyle: "normal",
+    lineHeight: 30,
+    letterSpacing: 4,
+    color: "#2c4256",
+    fontWeight: "bold"
   },
-  fixToText: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+  footer: {
+    marginTop: "6%",
+    alignSelf: "center",
+    width: "13%",
+    height: "0.1%",
+    opacity: 0.3,
+    borderStyle: "solid",
+    borderWidth: 0.5,
+    borderColor: "#000000",
+    width: "100%"
   },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth
+  bookMark: {
+    width: "3%",
+    height: "3%",
+    opacity: 0.7,
+    borderRadius: 10,
+    borderStyle: "solid",
+    borderWidth: 0.2,
+    borderColor: "#696969"
   }
 });

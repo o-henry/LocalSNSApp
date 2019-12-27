@@ -12,13 +12,18 @@ export default class Jeju extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
           <View style={styles.container}>
-            <View style={styles.divider} />
+            <Text style={styles.title}>HOT PLACE</Text>
+            <View style={styles.header}>
+              <Text style={styles.rank}>RANK</Text>
+            </View>
             <View>
               {this.props.location.map((loca, id) => {
                 return loca.location !== "undefined" ? (
-                  <Text style={styles.name} key={id}>
-                    {loca.location}
-                  </Text>
+                  <View style={styles.line}>
+                    <Text style={styles.name} key={id}>
+                      {loca.location}
+                    </Text>
+                  </View>
                 ) : (
                   delete loca.location
                 );
@@ -34,49 +39,58 @@ export default class Jeju extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "center",
-    backgroundColor: "white"
+    // alignContent: "center",
+    // alignSelf: "center",
+    backgroundColor: "#ffffff"
   },
-  border: {
-    width: 375,
-    height: 75,
-    borderRadius: 5,
-    backgroundColor: "#ffffff",
-    shadowColor: "rgba(59, 74, 116, 0.14)",
-    shadowOffset: {
-      width: 0,
-      height: 1.5
-    },
-    shadowRadius: 14.5,
-    shadowOpacity: 1
+  scrollView: {
+    marginHorizontal: "2%"
   },
+  header: {
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
+    height: "3%",
+    opacity: 0.9,
+    borderBottomColor: "#6c7b8a",
+    borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  rank: {},
+  title: {
+    marginTop: "10%",
+    marginBottom: "10%",
+    justifyContent: "center",
+    fontStyle: "normal",
+    lineHeight: 30,
+    letterSpacing: 4,
+    color: "#2c4256",
+    fontWeight: "bold"
+  },
+
   name: {
+    width: "100%",
     textAlign: "left",
-    marginLeft: 100,
-    width: 300,
-    height: 20.5,
-    fontSize: 20.5,
+    marginLeft: "50%",
     fontWeight: "500",
     fontStyle: "normal",
     lineHeight: 22.5,
     letterSpacing: 1,
     color: "#140f26"
   },
-  divider: {
-    width: 450,
-    height: 1,
-    opacity: 0.08,
-    backgroundColor: "black"
+
+  line: {
+    width: "100%",
+    height: "3.5%",
+    opacity: 0.9,
+    borderBottomColor: "#6c7b8a",
+    borderBottomWidth: StyleSheet.hairlineWidth
   },
 
-  scrollView: {
-    backgroundColor: "pink",
-    marginHorizontal: 20
-  },
   text: {
     fontSize: 20,
-    // textAlign: "center",
     color: "black"
   }
 });

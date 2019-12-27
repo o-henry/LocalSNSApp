@@ -83,13 +83,14 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
-    marginTop: "25%",
+    marginTop: "30%",
     justifyContent: "center"
   },
   title: {
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: "bold",
     fontStyle: "normal",
+    marginTop: "7%",
     letterSpacing: -0.3,
     color: "#201f1f"
   },
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     marginTop: "-30%"
   },
   input: {
-    borderRadius: 15,
+    borderRadius: 10,
     marginTop: 20,
     paddingLeft: "7.7%",
     // width: "84%",
@@ -143,20 +144,22 @@ const styles = StyleSheet.create({
     height: "0.1%",
     opacity: 0.3,
     borderStyle: "solid",
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: "#000000"
   },
   middleText: {
     marginTop: "6%",
     alignSelf: "center",
-    paddingHorizontal: 5
+    fontSize: 13,
+    paddingHorizontal: "5%"
   },
   message: {
     color: "white",
     letterSpacing: 3
   },
   footer: {
-    flex: 0.25,
+    flex: 0.4,
+    marginTop: "-8%",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-start"

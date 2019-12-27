@@ -12,10 +12,10 @@ export default class App extends Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="signin" component={SignIn} />
-          <Scene key="location" component={Location} />
+          <Scene key="signin" component={SignIn} hideNavBar={1} />
+          <Scene key="location" component={Location} hideNavBar={1} />
           <Scene key="category" component={Category} />
-          <Scene key="jeju" component={Jeju} />
+          <Scene key="jeju" component={Jeju} hideNavBar={1} />
           <Scene key="seoul" component={Seoul} title="Seoul_Page" />
         </Scene>
       </Router>
