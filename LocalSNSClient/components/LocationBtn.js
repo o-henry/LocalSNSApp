@@ -13,14 +13,12 @@ export default function LocationBtn(location) {
 const styles = StyleSheet.create({
   rectangle: {
     alignItems: "center",
-    width: 151.5,
-    height: 151.5,
+    justifyContent: "center",
+    width: 300.5,
+    height: 92.5,
     opacity: 0.7,
     borderRadius: 10,
-    paddingTop: 65,
-    margin: 17,
     marginBottom: 15,
-    marginTop: 15,
     backgroundColor: "rgba(238, 238, 238, 0.5)",
     // shadowColor: "rgba(0, 0, 0, 0.25)",
     shadowOffset: {

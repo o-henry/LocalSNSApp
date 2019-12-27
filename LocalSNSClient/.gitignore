@@ -252,3 +252,8 @@ web-report/
 
 # macOS
 .DS_Store
+
+../Figma/
+.Figma
+*.Figma
+Figma

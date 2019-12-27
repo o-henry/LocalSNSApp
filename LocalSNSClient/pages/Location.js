@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
-
 import LocationBtn from "../components/LocationBtn";
 
 export default class Location extends Component {
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     paddingLeft: 10,
-    paddingTop: 50,
+    paddingTop: 10,
     paddingRight: 10,
     backgroundColor: "#ffffff"
   },

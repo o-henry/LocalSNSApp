@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, Button, TextInput, Text, View, Alert } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Text,
+  View,
+  Alert
+} from "react-native";
 import { Actions } from "react-native-router-flux";
 
 export default class SignIn extends Component {
@@ -19,27 +26,35 @@ export default class SignIn extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>L O C A L</Text>
-        <TextInput
-          value={this.state.username}
-          onChangeText={username => this.setState({ username })}
-          placeholder={"전화번호, 사용자 이름 또는 이메일"}
-          style={styles.input}
-        />
-        <TextInput
-          value={this.state.password}
-          onChangeText={password => this.setState({ password })}
-          placeholder={"비밀번호"}
-          secureTextEntry={true}
-          style={styles.input}
-        />
-        <Button
-          style={styles.accountLogin}
-          title="로그인"
-          onPress={Actions.location}
-        />
-        <Text style={styles.create}>CREATE ACCOUNT</Text>
-        <Text style={styles.forgotDetails}>FORGOT DETAILS?</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>L O C A L</Text>
+        </View>
+
+        <View style={styles.content}>
+          <TextInput
+            value={this.state.username}
+            onChangeText={username => this.setState({ username })}
+            placeholder={"전화번호, 사용자 이름 또는 이메일"}
+            style={styles.input}
+          />
+          <TextInput
+            value={this.state.password}
+            onChangeText={password => this.setState({ password })}
+            placeholder={"비 밀 번 호"}
+            secureTextEntry={true}
+            style={styles.input}
+          />
+          <TouchableOpacity
+            style={styles.accountLogin}
+            onPress={Actions.location}
+          >
+            <Text style={styles.message}>SIGN IN</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.footer}>
+          <Text style={styles.create}>CREATE ACCOUNT</Text>
+          <Text style={styles.forgotDetails}>FORGOT DETAILS?</Text>
+        </View>
       </View>
     );
   }
@@ -48,46 +63,63 @@ export default class SignIn extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
     backgroundColor: "#ffffff"
   },
+  header: {
+    flex: 2,
+    marginTop: "25%",
+    justifyContent: "center"
+  },
   title: {
-    width: 294,
-    height: 95,
     fontSize: 30,
     fontWeight: "bold",
     fontStyle: "normal",
-    textAlign: "center",
-    // lineHeight: 20,
-    letterSpacing: -0.3
-    // color: "#ffffff"
+    letterSpacing: -0.3,
+    color: "#201f1f"
   },
-  fixToText: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  },
-  accountLogin: {
-    width: 630,
-    height: 100,
-    borderRadius: 100
-  },
-  input: {
-    borderRadius: 20,
-    marginTop: 15,
-    width: 315,
-    height: 55,
-    backgroundColor: "rgba(20, 15, 38, 0.65)"
+  content: {
+    flex: 2,
+    width: "84%",
+    height: "50.8%",
+    marginTop: "-30%"
   },
 
+  input: {
+    borderRadius: 15,
+    marginTop: 20,
+    paddingLeft: "7.7%",
+    // width: "84%",
+    height: "9.8%",
+    backgroundColor: "rgba(219, 219, 219, 0.4)"
+  },
+
+  accountLogin: {
+    marginTop: 20,
+    borderRadius: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    // width: "84%",
+    height: "9.8%",
+    backgroundColor: "rgba(10, 11, 10, 0.77)"
+  },
+  message: {
+    color: "white",
+    letterSpacing: 3
+  },
+  footer: {
+    flex: 0.25,
+    alignItems: "flex-end",
+    width: "29%",
+    height: "1.5%"
+    // justifyContent: "flex-end",
+    // alignContent: "stretch"
+  },
   create: {
-    width: 108,
-    height: 12.5,
+    // width: "29%",
+    // height: "1.5%",
     opacity: 0.5,
     fontSize: 10,
     fontWeight: "600",
@@ -96,8 +128,8 @@ const styles = StyleSheet.create({
     color: "black"
   },
   forgotDetails: {
-    width: 107.5,
-    height: 12.5,
+    // width: "29%",
+    // height: "1.5%",
     opacity: 0.5,
     fontSize: 10,
     fontWeight: "600",
