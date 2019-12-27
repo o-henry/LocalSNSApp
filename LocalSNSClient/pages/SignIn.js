@@ -40,7 +40,7 @@ export default class SignIn extends Component {
           <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
-            placeholder={"비 밀 번 호"}
+            placeholder={"비밀번호"}
             secureTextEntry={true}
             style={styles.input}
           />
@@ -49,6 +49,19 @@ export default class SignIn extends Component {
             onPress={Actions.location}
           >
             <Text style={styles.message}>SIGN IN</Text>
+          </TouchableOpacity>
+
+          <View style={styles.line}>
+            <View style={styles.innerLine} />
+            <Text style={styles.middleText}>O R</Text>
+            <View style={styles.innerLine} />
+          </View>
+
+          <TouchableOpacity
+            style={styles.googleLogin}
+            onPress={Actions.location}
+          >
+            <Text style={styles.googleMessage}>CONTINUE WITH GOOGLE</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.footer}>
@@ -86,7 +99,6 @@ const styles = StyleSheet.create({
     height: "50.8%",
     marginTop: "-30%"
   },
-
   input: {
     borderRadius: 15,
     marginTop: 20,
@@ -95,7 +107,6 @@ const styles = StyleSheet.create({
     height: "9.8%",
     backgroundColor: "rgba(219, 219, 219, 0.4)"
   },
-
   accountLogin: {
     marginTop: 20,
     borderRadius: 60,
@@ -105,31 +116,61 @@ const styles = StyleSheet.create({
     height: "9.8%",
     backgroundColor: "rgba(10, 11, 10, 0.77)"
   },
+  googleLogin: {
+    marginTop: 20,
+    borderRadius: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    // width: "84%",
+    height: "9.8%",
+    backgroundColor: "rgba(219, 219, 219, 0.9)"
+  },
+  googleMessage: {
+    fontWeight: "500",
+    fontStyle: "normal",
+    lineHeight: 48,
+    letterSpacing: 2.78,
+    color: "#2c4256"
+  },
+  line: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  innerLine: {
+    marginTop: "6%",
+    alignSelf: "center",
+    width: "13%",
+    height: "0.1%",
+    opacity: 0.3,
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000000"
+  },
+  middleText: {
+    marginTop: "6%",
+    alignSelf: "center",
+    paddingHorizontal: 5
+  },
   message: {
     color: "white",
     letterSpacing: 3
   },
   footer: {
     flex: 0.25,
-    alignItems: "flex-end",
-    width: "29%",
-    height: "1.5%"
-    // justifyContent: "flex-end",
-    // alignContent: "stretch"
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "flex-start"
   },
   create: {
-    // width: "29%",
-    // height: "1.5%",
     opacity: 0.5,
     fontSize: 10,
     fontWeight: "600",
     fontStyle: "normal",
     letterSpacing: 1,
-    color: "black"
+    color: "black",
+    marginRight: "25%"
   },
   forgotDetails: {
-    // width: "29%",
-    // height: "1.5%",
     opacity: 0.5,
     fontSize: 10,
     fontWeight: "600",
