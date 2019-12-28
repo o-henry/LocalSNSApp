@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "92%",
     height: "11%",
-    opacity: 0.7,
+    opacity: 0.9,
     borderRadius: 10,
     marginBottom: "4%",
     backgroundColor: "rgba(238, 238, 238, 0.5)",

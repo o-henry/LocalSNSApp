@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: "10%",
     marginBottom: "30%",
     justifyContent: "center",
-    fontStyle: "normal",
+    fontSize: 17,
     lineHeight: 30,
     letterSpacing: 4,
     color: "#2c4256",
