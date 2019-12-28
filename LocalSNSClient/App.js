@@ -6,6 +6,7 @@ import Jeju from "./pages/Jeju";
 import Seoul from "./pages/Seoul";
 import Category from "./pages/Category";
 import SignIn from "./pages/SignIn";
+import Trend from "./pages/Trend";
 
 export default class App extends Component {
   render() {
@@ -14,7 +15,8 @@ export default class App extends Component {
         <Scene key="root">
           <Scene key="signin" component={SignIn} hideNavBar={1} />
           <Scene key="location" component={Location} hideNavBar={1} />
-          <Scene key="category" component={Category} />
+          <Scene key="category" component={Category} hideNavBar={1} />
+          <Scene key="trend" component={Trend} hideNavBar={1} />
           <Scene key="jeju" component={Jeju} hideNavBar={1} />
           <Scene key="seoul" component={Seoul} title="Seoul_Page" />
         </Scene>

@@ -38,7 +38,7 @@ export default class Category extends Component {
         <Button title="HOT PLACE" onPress={this.getData} />
         <Button title="RESTAURANT" />
         <Button title="CAFE" />
-        <Button title="ETC" />
+        <Button title="TREND" onPress={Actions.trend} />
       </View>
     );
   }
