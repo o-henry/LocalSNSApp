@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Text,
   View,
+  Button,
   ScrollView,
   SafeAreaView
 } from "react-native";
@@ -13,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 export default class Jeju extends Component {
   constructor(props, locations, locaCount) {
     super(props, locations, locaCount);
+    this.state = {};
   }
 
   render() {
@@ -27,13 +29,22 @@ export default class Jeju extends Component {
           <Text style={styles.title}>HOT PLACE</Text>
 
           <View style={styles.header}>
-            <Text style={styles.rank}>RANK</Text>
-            <Text style={styles.rank}>TODAY</Text>
-            <Text style={styles.rank}>WEEK</Text>
-            <Text style={styles.rank}>MONTH</Text>
+            <TouchableOpacity style={styles.rank}>
+              <Text style={styles.headerBeforeChoice}>RANK</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.rank}>
+              <Text style={styles.headerChoice}>TODAY</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.rank}>
+              <Text style={styles.headerBeforeChoice}>WEEK</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.rank}>
+              <Text style={styles.headerBeforeChoice}>MONTH</Text>
+            </TouchableOpacity>
           </View>
 
           {this.props.location.map((loca, id) => {
+            // console.log(loca);
             return loca.location !== "undefined" ? (
               <View style={styles.line}>
                 <Text style={styles.locaCount} key={id}>
@@ -42,6 +53,7 @@ export default class Jeju extends Component {
                 <Text style={styles.location} key={id + "0"}>
                   {loca.location}
                 </Text>
+                <Text sytle={styles.time} key={id + "11"}></Text>
               </View>
             ) : (
               delete loca.location
@@ -64,19 +76,18 @@ const styles = StyleSheet.create({
     // padding: "10%",
     paddingTop: "20%"
   },
-  scrollView: {
-    // marginHorizontal: "0%"
-  },
   nav: {
-    justifyContent: "space-between",
+    flex: 1,
+    marginRight: "5%",
+    justifyContent: "center",
     marginTop: "-5%",
-    flexDirection: "row",
-    marginRight: "23%"
+    flexDirection: "row"
   },
   title: {
+    flex: 1,
     marginTop: "-4%",
     marginBottom: "10%",
-    marginRight: "26%",
+    marginRight: "35%",
     alignContent: "center",
     letterSpacing: 4,
     fontSize: 17,
@@ -89,38 +100,48 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: "-4%",
     opacity: 0.9,
+    // fontWeight: "200",
     borderBottomColor: "#6c7b8a",
     borderBottomWidth: StyleSheet.hairlineWidth
   },
 
   rank: {
-    // alignItems: "flex-start",
-    padding: "5%",
-    letterSpacing: 4,
+    flexDirection: "row",
+    padding: "5%"
+  },
+
+  headerBeforeChoice: {
     color: "#140f26",
     fontSize: 11,
-    fontWeight: "400"
+    letterSpacing: 4,
+    fontWeight: "200"
+  },
+
+  headerChoice: {
+    color: "#140f26",
+    fontSize: 11,
+    letterSpacing: 4,
+    fontWeight: "bold"
   },
 
   line: {
     flexDirection: "row",
     flexWrap: "wrap",
-    // justifyContent: "center",
     textAlign: "auto",
     width: "100%",
     opacity: 0.9,
     borderBottomColor: "#6c7b8a",
     borderBottomWidth: StyleSheet.hairlineWidth
   },
+
   locaCount: {
+    flex: 1,
     justifyContent: "center",
     alignSelf: "center",
-    flex: 1,
-    width: 500,
     marginLeft: "13%",
     marginTop: "9%",
-    fontWeight: "500",
-    fontSize: 18,
+    fontWeight: "bold",
+    fontSize: 20,
     letterSpacing: 1,
     color: "#140f26"
   },
@@ -136,6 +157,16 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: "black"
+  },
+  loading: {
+    width: "50%",
+    height: "2.5%",
+    opacity: 0.5,
+    backgroundColor: "#0a0b0a",
+    borderStyle: "solid",
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: "#000000"
   },
   footer: {
     marginTop: "30%",

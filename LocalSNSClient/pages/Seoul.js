@@ -9,7 +9,6 @@ export default class Seooul extends Component {
   }
 
   render() {
-    console.log("loca", this.location);
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>

@@ -12,15 +12,37 @@ export default class Category extends Component {
   getLocationData = async () => {
     try {
       await axios.get("http://localhost:4500/data/location").then(res => {
-        this.setState({ location: res.data, isLoading: false });
+        console.log("res", res.data);
+        let limit = res.data.slice(0, 30);
+        this.setState({ location: limit, isLoading: false });
       });
     } catch (err) {
       Alert.alert("Can't get any Data");
     }
   };
 
-  getData = async () => {
+  getLocationTodayData = async () => {
+    try {
+      await axios.get("http://localhost:4500/data/today").then(res => {
+        console.log("res", res.data);
+        let limit = res.data.slice(0, 30);
+        this.setState({ location: limit, isLoading: false });
+      });
+    } catch (err) {
+      Alert.alert("Can't get any Data");
+    }
+  };
+
+  getAllData = async () => {
     await this.getLocationData();
+    const { location, isLoading } = this.state;
+    Actions.jeju({
+      location: location
+    });
+  };
+
+  getTodayData = async () => {
+    await this.getLocationTodayData();
     const { location, isLoading } = this.state;
     Actions.jeju({
       location: location
@@ -29,16 +51,19 @@ export default class Category extends Component {
 
   componenetDidMount() {
     this.getLocationData();
+    this.getTodayData();
   }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.divider} />
-        <Button title="HOT PLACE" onPress={this.getData} />
+        <Button title="HOT PLACE" onPress={this.getTodayData} />
         <Button title="RESTAURANT" />
         <Button title="CAFE" />
         <Button title="TREND" onPress={Actions.trend} />
+        <Button title="RECOMMENDATION" onPress={Actions.recommend} />
+        <Button title="NAVIGATION" onPress={Actions.navigation} />
       </View>
     );
   }
